@@ -1,4 +1,4 @@
-![]("https://media.giphy.com/media/kfLrsvExow4ixZ7ZLT/giphy.gif")
+![](https://media.giphy.com/media/kfLrsvExow4ixZ7ZLT/giphy.gif)
 
 # SwiftyGiphyKit
 
