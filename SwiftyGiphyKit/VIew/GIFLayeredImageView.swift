@@ -29,7 +29,7 @@ public class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
     ///Determines whether removeBin has already been scaled.
     private var removeBinScaled: Bool = false
     
-    init(image: UIImage?, isUserEditable: Bool) {
+    public init(image: UIImage?, isUserEditable: Bool) {
         super.init(image: image)
         self.contentMode = .scaleAspectFill
         self.clipsToBounds = true
