@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F8A74D9586110DB3D3EC37A /* Pods_SwiftyGiphyKitExamples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D08DF424FD6DA5EBA9B6A87 /* Pods_SwiftyGiphyKitExamples.framework */; };
+		4E64EDE6D17587A3DD1BD88A /* Pods_SwiftyGiphyKitExamples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E651C1292A8B042001489EC /* Pods_SwiftyGiphyKitExamples.framework */; };
 		DE8EC27A2318B0E000EAAC4E /* SwiftyGiphyKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DE8EC2782318B0E000EAAC4E /* SwiftyGiphyKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE8EC2872318B19200EAAC4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8EC2862318B19200EAAC4E /* AppDelegate.swift */; };
 		DE8EC2892318B19200EAAC4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8EC2882318B19200EAAC4E /* ViewController.swift */; };
@@ -39,8 +39,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		73DF7E46C53312B2ACBCFBF0 /* Pods-SwiftyGiphyKitExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyGiphyKitExamples.release.xcconfig"; path = "Target Support Files/Pods-SwiftyGiphyKitExamples/Pods-SwiftyGiphyKitExamples.release.xcconfig"; sourceTree = "<group>"; };
-		7D08DF424FD6DA5EBA9B6A87 /* Pods_SwiftyGiphyKitExamples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyGiphyKitExamples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E651C1292A8B042001489EC /* Pods_SwiftyGiphyKitExamples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyGiphyKitExamples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		300BE26A184FBAA795E0F82A /* Pods-SwiftyGiphyKitExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyGiphyKitExamples.release.xcconfig"; path = "Target Support Files/Pods-SwiftyGiphyKitExamples/Pods-SwiftyGiphyKitExamples.release.xcconfig"; sourceTree = "<group>"; };
+		C40D1DDAE90305E5E3680CE8 /* Pods-SwiftyGiphyKitExamples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyGiphyKitExamples.debug.xcconfig"; path = "Target Support Files/Pods-SwiftyGiphyKitExamples/Pods-SwiftyGiphyKitExamples.debug.xcconfig"; sourceTree = "<group>"; };
 		DE8EC2752318B0E000EAAC4E /* SwiftyGiphyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyGiphyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE8EC2782318B0E000EAAC4E /* SwiftyGiphyKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyGiphyKit.h; sourceTree = "<group>"; };
 		DE8EC2792318B0E000EAAC4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,7 +64,6 @@
 		DE8EC2BE2318F30200EAAC4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE8EC2C12318F37300EAAC4E /* GIFLayeredImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFLayeredImageView.swift; sourceTree = "<group>"; };
 		DE8EC2C42318F49600EAAC4E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		E80335ADE142DE62414FA567 /* Pods-SwiftyGiphyKitExamples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyGiphyKitExamples.debug.xcconfig"; path = "Target Support Files/Pods-SwiftyGiphyKitExamples/Pods-SwiftyGiphyKitExamples.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,28 +78,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F8A74D9586110DB3D3EC37A /* Pods_SwiftyGiphyKitExamples.framework in Frameworks */,
+				4E64EDE6D17587A3DD1BD88A /* Pods_SwiftyGiphyKitExamples.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		14364B70325ED82E3CAE4AF8 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7D08DF424FD6DA5EBA9B6A87 /* Pods_SwiftyGiphyKitExamples.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		4BF7A1CE463F331E3DE9B686 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E80335ADE142DE62414FA567 /* Pods-SwiftyGiphyKitExamples.debug.xcconfig */,
-				73DF7E46C53312B2ACBCFBF0 /* Pods-SwiftyGiphyKitExamples.release.xcconfig */,
+				C40D1DDAE90305E5E3680CE8 /* Pods-SwiftyGiphyKitExamples.debug.xcconfig */,
+				300BE26A184FBAA795E0F82A /* Pods-SwiftyGiphyKitExamples.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7E360FB7DE2DEAE299952CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E651C1292A8B042001489EC /* Pods_SwiftyGiphyKitExamples.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		DE8EC26B2318B0E000EAAC4E = {
@@ -112,7 +112,7 @@
 				DE8EC2852318B19200EAAC4E /* SwiftyGiphyKitExamples */,
 				DE8EC2762318B0E000EAAC4E /* Products */,
 				4BF7A1CE463F331E3DE9B686 /* Pods */,
-				14364B70325ED82E3CAE4AF8 /* Frameworks */,
+				7E360FB7DE2DEAE299952CEA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -216,11 +216,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE8EC2932318B19400EAAC4E /* Build configuration list for PBXNativeTarget "SwiftyGiphyKitExamples" */;
 			buildPhases = (
-				0C24CE3B44E288389AC963C0 /* [CP] Check Pods Manifest.lock */,
+				2CBADD2A5C2D2FAC8731934B /* [CP] Check Pods Manifest.lock */,
 				DE8EC2802318B19200EAAC4E /* Sources */,
 				DE8EC2812318B19200EAAC4E /* Frameworks */,
 				DE8EC2822318B19200EAAC4E /* Resources */,
-				8A3CC6F73DE0FCE18879A055 /* [CP] Embed Pods Frameworks */,
+				EF88BA3DE2B89F8CCA525C29 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -294,7 +294,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0C24CE3B44E288389AC963C0 /* [CP] Check Pods Manifest.lock */ = {
+		2CBADD2A5C2D2FAC8731934B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -316,7 +316,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8A3CC6F73DE0FCE18879A055 /* [CP] Embed Pods Frameworks */ = {
+		EF88BA3DE2B89F8CCA525C29 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -566,7 +566,7 @@
 		};
 		DE8EC2942318B19400EAAC4E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E80335ADE142DE62414FA567 /* Pods-SwiftyGiphyKitExamples.debug.xcconfig */;
+			baseConfigurationReference = C40D1DDAE90305E5E3680CE8 /* Pods-SwiftyGiphyKitExamples.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -585,7 +585,7 @@
 		};
 		DE8EC2952318B19400EAAC4E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73DF7E46C53312B2ACBCFBF0 /* Pods-SwiftyGiphyKitExamples.release.xcconfig */;
+			baseConfigurationReference = 300BE26A184FBAA795E0F82A /* Pods-SwiftyGiphyKitExamples.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
