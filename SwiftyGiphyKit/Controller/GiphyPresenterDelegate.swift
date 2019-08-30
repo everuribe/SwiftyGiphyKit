@@ -9,6 +9,6 @@
 import Foundation
 import UIKit
 
-protocol GiphyPresenterDelegate {
+public protocol GiphyPresenterDelegate {
     func handleGiphySelected(gifImage: UIImage, url: URL)
 }

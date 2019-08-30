@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct GIFDisplayInfo {
+public struct GIFDisplayInfo {
     ///Link to GIF.
     var url: URL
     ///Scale transform.

@@ -11,19 +11,19 @@ import UIKit
 
 var giphyResults: [UIImage] = []
 
-class GiphySearchPresenter: NSObject {
-    var delegate: GiphyPresenterDelegate?
+public class GiphySearchPresenter: NSObject {
+    public var delegate: GiphyPresenterDelegate?
     
-    var giphyView: GiphySearchView!
+    private var giphyView: GiphySearchView!
     
     ///Reference to top constraint of giphyView for pan gesture sliding
-    var topConstraint: NSLayoutConstraint!
+    private var topConstraint: NSLayoutConstraint!
     
     ///Reference to key window
-    var keyWindow: UIWindow!
+    private var keyWindow: UIWindow!
     
     ///Opens the giphy view.
-    func openGiphyView() {
+    public func openGiphyView() {
         if let keyWindowRef: UIWindow = UIApplication.shared.keyWindow {
             keyWindow = keyWindowRef
             
@@ -73,7 +73,7 @@ class GiphySearchPresenter: NSObject {
     
     
     ///Handles dragging to close the giphy view.
-    @objc func handlePanGesture(pan: UIPanGestureRecognizer) {
+    @objc private func handlePanGesture(pan: UIPanGestureRecognizer) {
         let translation = pan.translation(in: keyWindow)
         if translation.y >= 0 {
             slideViewTo(location: translation.y)

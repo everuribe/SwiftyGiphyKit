@@ -12,22 +12,22 @@ import UIKit
 ///User interactable image view with GIFs layered onto image. 
 ///- clipsToBounds = true
 ///- contentMode = .scaleAspectFill
-class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
+public class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
     
-    var gifArray: [UIImageView] = []
-    var gifInfoArray: [GIFDisplayInfo] = []
+    public var gifArray: [UIImageView] = []
+    public var gifInfoArray: [GIFDisplayInfo] = []
     
     ///Used to indicate gif has been selected with some gesture.
-    var selectedGif: UIImageView?
+    private var selectedGif: UIImageView?
     ///Used to save transform of gif before it was selected.
-    var originalTransform: CGAffineTransform!
+    private var originalTransform: CGAffineTransform!
     ///Used to save transform of gif before it was dragged under removeBin.
-    var transformBeforeTrashed: CGAffineTransform!
+    private var transformBeforeTrashed: CGAffineTransform!
     
     ///UI feature indicating to user ability to delete gif as it's being dragged.
-    let removeBin: UIImageView = UIImageView(image: UIImage(named: "trash"))
+    private let removeBin: UIImageView = UIImageView(image: UIImage(named: "trash"))
     ///Determines whether removeBin has already been scaled.
-    var removeBinScaled: Bool = false
+    private var removeBinScaled: Bool = false
     
     init(image: UIImage?, isUserEditable: Bool) {
         super.init(image: image)
@@ -65,7 +65,7 @@ class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
     }
     
     ///Add gif to view and to database
-    func addGif(gifImage: UIImage, url: URL) {
+    public func addGif(gifImage: UIImage, url: URL) {
         let newGif: UIImageView = UIImageView(gifImage: gifImage)
         let size: CGFloat = self.frame.width/3.75
         newGif.frame.size = CGSize(width: size, height: size)
@@ -89,7 +89,7 @@ class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
     }
     
     ///Calculate and save all gif info including rotation, scale, and location.
-    func saveGifInfo() {
+    public func saveGifInfo() {
         for (index, gif) in gifArray.enumerated() {
             let transform: CGAffineTransform = gif.transform
             let rotation: CGFloat = atan2(transform.b, transform.a)
@@ -211,7 +211,7 @@ class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
         }
     }
     
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
     
