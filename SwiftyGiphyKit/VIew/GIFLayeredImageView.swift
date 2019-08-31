@@ -25,9 +25,15 @@ public class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
     private var transformBeforeTrashed: CGAffineTransform!
     
     ///UI feature indicating to user ability to delete gif as it's being dragged.
-    private let removeBin: UIImageView = UIImageView(image: UIImage(named: "trash"))
+    private let removeBin: UIImageView = UIImageView(image: trashIcon)
     ///Determines whether removeBin has already been scaled.
     private var removeBinScaled: Bool = false
+    
+    private static var trashIcon: UIImage {
+        let bundle = Bundle(for: self)
+        let image: UIImage = UIImage(named: "trash", in: bundle, compatibleWith: nil)!
+        return image
+    }
     
     public init(image: UIImage?, isUserEditable: Bool) {
         super.init(image: image)

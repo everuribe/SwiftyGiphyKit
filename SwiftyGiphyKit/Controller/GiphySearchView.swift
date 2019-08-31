@@ -23,8 +23,8 @@ class GiphySearchView: UIView, UICollectionViewDelegate, UICollectionViewDataSou
     private let headerButton: UIButton = {
         let button: UIButton = UIButton()
         button.addTarget(self, action: #selector(scrollToTop), for: .touchUpInside)
-        button.setImage(UIImage(named: "scroll_header"), for: .normal)
-        button.setImage(UIImage(named: "scroll_header_selected"), for: .selected)
+        button.setImage(scrollHeaderIcon, for: .normal)
+        button.setImage(scrollHeaderSelectedIcon, for: .selected)
         button.imageView?.contentMode = .scaleAspectFit
         return button
     }()
@@ -45,6 +45,18 @@ class GiphySearchView: UIView, UICollectionViewDelegate, UICollectionViewDataSou
         button.isEnabled = false
         return button
     }()
+    
+    private static var scrollHeaderIcon: UIImage {
+        let bundle = Bundle(for: self)
+        let image: UIImage = UIImage(named: "scroll_header", in: bundle, compatibleWith: nil)!
+        return image
+    }
+    
+    private static var scrollHeaderSelectedIcon: UIImage {
+        let bundle = Bundle(for: self)
+        let image: UIImage = UIImage(named: "scroll_header_selected", in: bundle, compatibleWith: nil)!
+        return image
+    }
     
     //MARK: VIEW SETUP
     init(presenter: GiphySearchPresenter) {

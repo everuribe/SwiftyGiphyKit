@@ -9,7 +9,25 @@ import UIKit
 
 class SearchBar: UITextField {
     
-    private let iconView = UIImageView(image: UIImage(named: "search")!.withRenderingMode(.alwaysTemplate))
+    private let iconView = UIImageView(image: searchIcon.withRenderingMode(.alwaysTemplate))
+    
+    private static var searchIcon: UIImage {
+        let bundle = Bundle(for: self)
+        let image: UIImage = UIImage(named: "search", in: bundle, compatibleWith: nil)!
+        return image
+    }
+    
+    private static var clearIcon: UIImage {
+        let bundle = Bundle(for: self)
+        let image: UIImage = UIImage(named: "clear", in: bundle, compatibleWith: nil)!
+        return image
+    }
+    
+    private static var clearSelectedIcon: UIImage {
+        let bundle = Bundle(for: self)
+        let image: UIImage = UIImage(named: "clear_selected", in: bundle, compatibleWith: nil)!
+        return image
+    }
     
     ///Padding of leftView to leftAnchor
     private let padding: CGFloat = 8
@@ -37,10 +55,10 @@ class SearchBar: UITextField {
         
         //Set clear button to custom white image
         if let clearButton: UIButton = value(forKey: "clearButton") as? UIButton {
-            let clearImage: UIImage = UIImage(named: "clear")!
+            let clearImage: UIImage = SearchBar.clearIcon
             clearButton.setImage(clearImage, for: .normal)
             
-            let clearImageSelected: UIImage = UIImage(named: "clear_selected")!
+            let clearImageSelected: UIImage = SearchBar.clearSelectedIcon
             clearButton.setImage(clearImageSelected, for: .selected)
         }
     }
