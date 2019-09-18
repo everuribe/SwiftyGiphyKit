@@ -153,8 +153,8 @@
 		DE8EC2A32318F22500EAAC4E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DE8EC2A72318F24700EAAC4E /* GiphyPresenterDelegate.swift */,
 				DE8EC2A62318F24700EAAC4E /* GiphySearchView.swift */,
+				DE8EC2A72318F24700EAAC4E /* GiphyPresenterDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

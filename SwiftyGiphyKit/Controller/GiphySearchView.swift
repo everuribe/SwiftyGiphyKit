@@ -41,7 +41,7 @@ class GiphySearchView: UIView, UICollectionViewDelegate, UICollectionViewDataSou
         button.setTitle("Cancel", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 16)
-        button.addTarget(self, action: #selector(cancelSearch), for: .touchUpInside)
+        button.addTarget(self, action: #selector(resetSearch), for: .touchUpInside)
         button.isEnabled = false
         return button
     }()
@@ -174,6 +174,22 @@ class GiphySearchView: UIView, UICollectionViewDelegate, UICollectionViewDataSou
         }).resume()
     }
     
+    var timer: Timer?
+    
+    private func fetchJSONOnTimer(urlString: String) {
+        cancelTimer()
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.4, repeats: false, block: { (timer) in
+            self.downloadJSON(searchUrl: urlString)
+        })
+    }
+    
+    private func cancelTimer(){
+        if timer != nil {
+            timer?.invalidate()
+            timer = nil
+        }
+    }
+    
     //MARK: USER INTERACTION METHODS
     @objc private func scrollToTop() {
         cancelSearch()
@@ -183,6 +199,12 @@ class GiphySearchView: UIView, UICollectionViewDelegate, UICollectionViewDataSou
         } else {
             presenter.closeGiphyView()
         }
+    }
+    
+    @objc private func resetSearch(){
+        cancelSearch()
+        let giphyTrendUrl: String = "https://api.giphy.com/v1/stickers/trending?api_key=brgHkHkCxkU4FGrHOyJfMd67LmZqipJj&limit=50&rating=PG-13"
+        downloadJSON(searchUrl: giphyTrendUrl)
     }
     
     //Handle pan if user is sliding opposite of scrollview when scrolled to top.
@@ -197,7 +219,7 @@ class GiphySearchView: UIView, UICollectionViewDelegate, UICollectionViewDataSou
         }
     }
     
-    @objc func cancelSearch(){
+    func cancelSearch(){
         toggleSearchAnimation(shouldReveal: false)
         searchBar.toggleSearch(didBeganEditing: false)
         searchBar.endEditing(true)
@@ -265,14 +287,16 @@ class GiphySearchView: UIView, UICollectionViewDelegate, UICollectionViewDataSou
             showHeader = true
             let giphyTrendUrl: String = "https://api.giphy.com/v1/stickers/trending?api_key=brgHkHkCxkU4FGrHOyJfMd67LmZqipJj&limit=50&rating=PG-13"
             
-            downloadJSON(searchUrl: giphyTrendUrl)
+            fetchJSONOnTimer(urlString: giphyTrendUrl)
+//            downloadJSON(searchUrl: giphyTrendUrl)
         } else {
             showHeader = false
             let keywords: String = textField.text!.replacingOccurrences(of: " ", with: "+")
             
             let searchURL: String = "https://api.giphy.com/v1/stickers/search?api_key=brgHkHkCxkU4FGrHOyJfMd67LmZqipJj&q=\(keywords)&limit=25&offset=0&rating=PG-13&lang=en"
             
-            downloadJSON(searchUrl: searchURL)
+            fetchJSONOnTimer(urlString: searchURL)
+//            downloadJSON(searchUrl: searchURL)
         }
     }
     
