@@ -6,10 +6,9 @@
 //  Copyright © 2019 Ever Uribe. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-public struct GIFDisplayInfo {
+public struct GIFDisplayInfo: Codable {
     ///Link to GIF.
     var url: URL
     ///Scale transform.
