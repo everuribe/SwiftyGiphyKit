@@ -18,4 +18,9 @@ public struct GIFDisplayInfo {
     var universalLocation: CGPoint
     ///Rotation transform in radians.
     var rotation: CGFloat
+    
+    ///Converts the GIFDisplayInfo struct object to a dictionary, useful for storing data as keyed values (ie uploading info to a keyed cloud storage).
+    public func convertToDictObject() -> [String: Any] {
+        return ["url": url, "scale": scale, "universalLocation": universalLocation, "rotation": rotation]
+    }
 }
