@@ -70,6 +70,28 @@ public class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
         self.addGestureRecognizer(dragGesture)
     }
     
+    ///Load gifs from a GIFDisplayInfo array
+    public func loadGifsFrom(info: [GIFDisplayInfo]) {
+        for gif in info {
+            let newGif: UIImageView = UIImageView()
+            
+            //Set center, scale, and rotation
+            let centerX: CGFloat = gif.universalLocation.x*self.frame.width
+            let centerY: CGFloat = gif.universalLocation.y*self.frame.height
+            
+            newGif.center = CGPoint(x: centerX, y: centerY)
+            newGif.transform = newGif.transform.scaledBy(x: gif.scale, y: gif.scale)
+            newGif.transform = newGif.transform.rotated(by: gif.rotation)
+            
+            //Load gif
+            newGif.setGifFromURL(gif.url)
+            
+            //Add gif
+            gifArray.append(newGif)
+        }
+        gifInfoArray = info
+    }
+    
     ///Add gif to view and to database
     public func addGif(gifImage: UIImage, url: URL) {
         let newGif: UIImageView = UIImageView(gifImage: gifImage)
