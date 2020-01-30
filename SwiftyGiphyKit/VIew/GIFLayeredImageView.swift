@@ -76,12 +76,14 @@ public class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
             let newGif: UIImageView = UIImageView()
             
             //Set center, scale, and rotation
-            let centerX: CGFloat = gif.universalLocation.x*self.frame.width
-            let centerY: CGFloat = gif.universalLocation.y*self.frame.height
+            let centerX: CGFloat = CGFloat(gif.universalLocationX)*self.frame.width
+            let centerY: CGFloat = CGFloat(gif.universalLocationY)*self.frame.height
+            let scale: CGFloat = CGFloat(gif.scale)
+            let rotation: CGFloat = CGFloat(gif.rotation)
             
             newGif.center = CGPoint(x: centerX, y: centerY)
-            newGif.transform = newGif.transform.scaledBy(x: gif.scale, y: gif.scale)
-            newGif.transform = newGif.transform.rotated(by: gif.rotation)
+            newGif.transform = newGif.transform.scaledBy(x: scale, y: scale)
+            newGif.transform = newGif.transform.rotated(by: rotation)
             
             //Load gif
             let url: URL = URL(string: gif.urlString)!
@@ -102,8 +104,9 @@ public class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
         self.insertSubview(newGif, belowSubview: removeBin)
         gifArray.append(newGif)
         
-        let universalLocation: CGPoint = CGPoint(x: newGif.center.x/self.frame.width, y: newGif.center.y/self.frame.height)
-        let gifInfo = GIFDisplayInfo(urlString: url.absoluteString, scale: 1, universalLocation: universalLocation, rotation: 0)
+        let universalLocationX: Double = Double(newGif.center.x/self.frame.width)
+        let universalLocationY: Double = Double(newGif.center.y/self.frame.height)
+        let gifInfo = GIFDisplayInfo(urlString: url.absoluteString, scale: 1, universalLocationX: universalLocationX, universalLocationY: universalLocationY, rotation: 0)
         gifInfoArray.append(gifInfo)
     }
     
@@ -121,13 +124,15 @@ public class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
     public func saveGifInfo() {
         for (index, gif) in gifArray.enumerated() {
             let transform: CGAffineTransform = gif.transform
-            let rotation: CGFloat = atan2(transform.b, transform.a)
-            let scale: CGFloat = sqrt(transform.a * transform.a + transform.c * transform.c)
-            let location: CGPoint = CGPoint(x: gif.center.x/self.frame.width, y: gif.center.y/self.frame.height)
+            let rotation: Double = Double(atan2(transform.b, transform.a))
+            let scale: Double = Double(sqrt(transform.a * transform.a + transform.c * transform.c))
+            let locationX: Double = Double(gif.center.x/self.frame.width)
+            let locationY: Double = Double(gif.center.y/self.frame.height)
             
             gifInfoArray[index].rotation = rotation
             gifInfoArray[index].scale = scale
-            gifInfoArray[index].universalLocation = location
+            gifInfoArray[index].universalLocationX = locationX
+            gifInfoArray[index].universalLocationY = locationY
         }
     }
     
