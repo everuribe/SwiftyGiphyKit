@@ -143,9 +143,9 @@ public class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
                 }
             }
         } else if recognizer.state == .changed {
-            if let gif: UIImageView = selectedGif {
+            if let gif: UIImageView = selectedGif, let ogTransform: CGAffineTransform = originalTransform {
                 let scale: CGFloat = recognizer.scale
-                gif.transform =  originalTransform.scaledBy(x: scale, y: scale)
+                gif.transform =  ogTransform.scaledBy(x: scale, y: scale)
             }
         } else if recognizer.state == .ended {
             selectedGif = nil
