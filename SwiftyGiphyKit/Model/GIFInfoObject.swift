@@ -24,6 +24,6 @@ public struct GIFDisplayInfo: Codable {
     
     ///Converts the GIFDisplayInfo struct object to a dictionary, useful for storing data as keyed values (ie uploading info to a keyed cloud storage).
     public func convertToDictObject() -> [String: Any] {
-        return ["url": urlString, "scale": scale, "universalLocationX": universalLocationX, "universalLocationY": universalLocationY, "rotation": rotation]
+        return ["urlString": urlString, "scale": scale, "universalLocationX": universalLocationX, "universalLocationY": universalLocationY, "rotation": rotation]
     }
 }
