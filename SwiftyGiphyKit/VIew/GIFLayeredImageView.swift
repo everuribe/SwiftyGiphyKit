@@ -81,7 +81,11 @@ public class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
             let scale: CGFloat = CGFloat(gif.scale)
             let rotation: CGFloat = CGFloat(gif.rotation)
             
+            //Determine frame of GIF
+            let size: CGFloat = self.frame.width/3.75
+            newGif.frame.size = CGSize(width: size, height: size)
             newGif.center = CGPoint(x: centerX, y: centerY)
+
             newGif.transform = newGif.transform.scaledBy(x: scale, y: scale)
             newGif.transform = newGif.transform.rotated(by: rotation)
             
@@ -90,7 +94,7 @@ public class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
             newGif.setGifFromURL(url)
             
             //Add gif
-            self.addSubview(newGif)
+            self.insertSubview(newGif, belowSubview: removeBin)
             gifArray.append(newGif)
         }
         gifInfoArray = info
