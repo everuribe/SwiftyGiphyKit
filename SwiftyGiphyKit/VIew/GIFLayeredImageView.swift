@@ -84,7 +84,8 @@ public class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
             newGif.transform = newGif.transform.rotated(by: gif.rotation)
             
             //Load gif
-            newGif.setGifFromURL(gif.url)
+            let url: URL = URL(string: gif.urlString)!
+            newGif.setGifFromURL(url)
             
             //Add gif
             gifArray.append(newGif)
@@ -102,7 +103,7 @@ public class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
         gifArray.append(newGif)
         
         let universalLocation: CGPoint = CGPoint(x: newGif.center.x/self.frame.width, y: newGif.center.y/self.frame.height)
-        let gifInfo = GIFDisplayInfo(url: url, scale: 1, universalLocation: universalLocation, rotation: 0)
+        let gifInfo = GIFDisplayInfo(urlString: url.absoluteString, scale: 1, universalLocation: universalLocation, rotation: 0)
         gifInfoArray.append(gifInfo)
     }
     

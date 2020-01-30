@@ -10,7 +10,7 @@ import UIKit
 
 public struct GIFDisplayInfo: Codable {
     ///Link to GIF.
-    var url: URL
+    var urlString: String
     ///Scale transform.
     var scale: CGFloat
     ///This is the center location divided by the width/height (ie x/width, y/height).
@@ -20,6 +20,6 @@ public struct GIFDisplayInfo: Codable {
     
     ///Converts the GIFDisplayInfo struct object to a dictionary, useful for storing data as keyed values (ie uploading info to a keyed cloud storage).
     public func convertToDictObject() -> [String: Any] {
-        return ["url": url, "scale": scale, "universalLocation": universalLocation, "rotation": rotation]
+        return ["url": urlString, "scale": scale, "universalLocation": universalLocation, "rotation": rotation]
     }
 }
