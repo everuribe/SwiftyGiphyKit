@@ -90,6 +90,7 @@ public class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
             newGif.setGifFromURL(url)
             
             //Add gif
+            self.addSubview(newGif)
             gifArray.append(newGif)
         }
         gifInfoArray = info
