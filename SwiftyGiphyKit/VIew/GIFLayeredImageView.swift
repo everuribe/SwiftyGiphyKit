@@ -100,6 +100,14 @@ public class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
         gifInfoArray = info
     }
     
+    public func clearAllGifs(){
+        for gif in gifArray {
+            gif.removeFromSuperview()
+        }
+        gifArray.removeAll()
+        gifInfoArray.removeAll()
+    }
+    
     ///Add gif to view and to database
     public func addGif(gifImage: UIImage, url: URL) {
         let newGif: UIImageView = UIImageView(gifImage: gifImage)

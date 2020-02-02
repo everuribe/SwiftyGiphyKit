@@ -9,7 +9,7 @@
 Pod::Spec.new do |spec|
 
   spec.name = "SwiftyGiphyKit"
-  spec.version = "0.2.3"
+  spec.version = "0.2.4"
   spec.summary = "Lightweight Swift kit used to present Giphy search/picker view and display/edit GIFs in a user-interactable image view powered by SwiftyGif."
 
   spec.description = <<-DESC
