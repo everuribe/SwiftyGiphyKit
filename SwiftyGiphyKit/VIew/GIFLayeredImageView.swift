@@ -39,7 +39,7 @@ public class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
         super.init(image: image)
         self.contentMode = .scaleAspectFill
         self.clipsToBounds = true
-        self.isUserInteractionEnabled = true
+        self.isUserInteractionEnabled = isUserEditable
         
         removeBin.alpha = 0
         addSubview(removeBin)
