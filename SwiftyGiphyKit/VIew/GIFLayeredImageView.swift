@@ -70,27 +70,24 @@ public class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
         self.addGestureRecognizer(dragGesture)
     }
     
+    //Override bounds to listen for changes and adjust gifs accordingly
+    override public var bounds: CGRect {
+        didSet {
+            for (index, gif) in gifArray.enumerated() {
+                setGifView(gif: gif, gifInfo: gifInfoArray[index])
+            }
+        }
+    }
+    
     ///Load gifs from a GIFDisplayInfo array
     public func loadGifsFrom(info: [GIFDisplayInfo]) {
-        for gif in info {
+        for gifInfo in info {
             let newGif: UIImageView = UIImageView()
             
-            //Set center, scale, and rotation
-            let centerX: CGFloat = CGFloat(gif.universalLocationX)*self.frame.width
-            let centerY: CGFloat = CGFloat(gif.universalLocationY)*self.frame.height
-            let scale: CGFloat = CGFloat(gif.scale)
-            let rotation: CGFloat = CGFloat(gif.rotation)
-            
-            //Determine frame of GIF
-            let size: CGFloat = self.frame.width/3.75
-            newGif.frame.size = CGSize(width: size, height: size)
-            newGif.center = CGPoint(x: centerX, y: centerY)
-
-            newGif.transform = newGif.transform.scaledBy(x: scale, y: scale)
-            newGif.transform = newGif.transform.rotated(by: rotation)
+            setGifView(gif: newGif, gifInfo: gifInfo)
             
             //Load gif
-            let url: URL = URL(string: gif.urlString)!
+            let url: URL = URL(string: gifInfo.urlString)!
             newGif.setGifFromURL(url)
             
             //Add gif
@@ -98,6 +95,22 @@ public class GIFLayeredImageView: UIImageView, UIGestureRecognizerDelegate {
             gifArray.append(newGif)
         }
         gifInfoArray = info
+    }
+    
+    private func setGifView(gif: UIImageView, gifInfo: GIFDisplayInfo){
+        //Set center, scale, and rotation
+        let centerX: CGFloat = CGFloat(gifInfo.universalLocationX)*self.frame.width
+        let centerY: CGFloat = CGFloat(gifInfo.universalLocationY)*self.frame.height
+        let scale: CGFloat = CGFloat(gifInfo.scale)
+        let rotation: CGFloat = CGFloat(gifInfo.rotation)
+        
+        //Determine frame of GIF
+        let size: CGFloat = self.frame.width/3.75
+        gif.frame.size = CGSize(width: size, height: size)
+        gif.center = CGPoint(x: centerX, y: centerY)
+
+        gif.transform = gif.transform.scaledBy(x: scale, y: scale)
+        gif.transform = gif.transform.rotated(by: rotation)
     }
     
     public func clearAllGifs(){
